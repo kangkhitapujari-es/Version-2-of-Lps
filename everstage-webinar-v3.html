@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The #2 Cost Line Nobody Optimizes — Everstage Live Webinar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+:root {
+  --navy: #0C1C38;
+  --navy-dark: #08111F;
+  --navy-card: #112040;
+  --accent: #F5C842;
+  --green: #B8F07A;
+  --white: #FFFFFF;
+  --off-white: #F6F4EF;
+  --body-text: #A8BAD4;
+  --muted: #5C7494;
+  --border: rgba(255,255,255,0.07);
+  --border-light: rgba(255,255,255,0.12);
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--navy);
+  color: var(--white);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── NAVBAR ─── */
+.navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 56px;
+  height: 64px;
+  background: rgba(8, 17, 31, 0.9);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+.navbar-logo img { height: 28px; }
+.navbar-logo-text {
+  font-family: 'Instrument Serif', serif;
+  font-size: 20px;
+  color: var(--white);
+  letter-spacing: -0.2px;
+}
+.navbar-cta {
+  background: var(--accent);
+  color: var(--navy-dark);
+  font-size: 13px;
+  font-weight: 700;
+  padding: 9px 22px;
+  border-radius: 7px;
+  text-decoration: none;
+  transition: opacity 0.18s;
+}
+.navbar-cta:hover { opacity: 0.85; }
+
+/* ─── HERO ─── */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 440px;
+  gap: 0;
+  padding: 100px 56px 80px;
+  position: relative;
+  overflow: hidden;
+  align-items: start;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 55%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(245,200,66,0.04) 0%, transparent 60%);
+  pointer-events: none;
+}
+/* subtle dot grid */
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255,255,255,0.035) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+}
+
+/* ── HERO LEFT ── */
+.hero-left {
+  padding-right: 64px;
+  padding-top: 24px;
+  position: relative;
+  z-index: 2;
+}
+
+.live-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid rgba(184,240,122,0.4);
+  background: rgba(184,240,122,0.08);
+  color: var(--green);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  padding: 6px 14px 6px 10px;
+  border-radius: 100px;
+  margin-bottom: 36px;
+}
+.live-dot {
+  width: 7px; height: 7px;
+  background: var(--green);
+  border-radius: 50%;
+  animation: livePulse 1.8s ease-in-out infinite;
+}
+@keyframes livePulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.35; transform: scale(0.75); }
+}
+
+.hero-h1 {
+  font-family: 'Instrument Serif', serif;
+  font-size: clamp(40px, 4.8vw, 62px);
+  line-height: 1.02;
+  letter-spacing: -1.5px;
+  color: var(--white);
+  margin-bottom: 0;
+}
+.hero-h1 em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.hero-h2 {
+  font-family: 'Instrument Serif', serif;
+  font-size: clamp(22px, 2.6vw, 30px);
+  line-height: 1.3;
+  color: var(--body-text);
+  font-style: italic;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  max-width: 580px;
+}
+.hero-sub {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--muted);
+  max-width: 560px;
+  margin-bottom: 32px;
+}
+
+.hero-desc {
+  font-size: 15.5px;
+  line-height: 1.8;
+  color: var(--body-text);
+  max-width: 580px;
+  margin-bottom: 36px;
+}
+.hero-desc p + p { margin-top: 14px; }
+
+/* Date/Time row */
+.meta-row {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin-bottom: 44px;
+}
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 14.5px;
+  font-weight: 500;
+  color: var(--white);
+}
+.meta-item svg { opacity: 0.6; }
+.meta-sep {
+  width: 1px;
+  height: 20px;
+  background: var(--border-light);
+  margin: 0 24px;
+}
+
+/* Speakers */
+.speakers-block { }
+.speakers-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+.speakers-list {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.speaker-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  padding: 12px 16px;
+  min-width: 220px;
+  transition: border-color 0.2s;
+}
+.speaker-card:hover { border-color: rgba(245,200,66,0.35); }
+.speaker-av {
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--navy-card), #1d3460);
+  border: 1.5px solid var(--border-light);
+  display: grid;
+  place-items: center;
+  font-family: 'Instrument Serif', serif;
+  font-size: 15px;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+.speaker-name {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--white);
+  line-height: 1.25;
+}
+.speaker-title {
+  font-size: 11.5px;
+  color: var(--muted);
+  margin-top: 2px;
+  line-height: 1.3;
+}
+.speaker-co {
+  display: inline-block;
+  margin-top: 4px;
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--accent);
+  background: rgba(245,200,66,0.1);
+  padding: 2px 7px;
+  border-radius: 4px;
+  letter-spacing: 0.3px;
+}
+
+/* ── HERO RIGHT — FORM ── */
+.hero-right {
+  position: relative;
+  z-index: 2;
+  padding-top: 0;
+}
+.form-wrap {
+  position: sticky;
+  top: 84px;
+  background: var(--white);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 40px 100px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.05);
+}
+.form-urgency {
+  background: var(--accent);
+  padding: 12px 24px;
+  text-align: center;
+}
+.form-urgency-text {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--navy-dark);
+  letter-spacing: 0.1px;
+}
+.form-countdown {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--navy-dark);
+  letter-spacing: 1px;
+  margin-top: 3px;
+}
+.form-body {
+  padding: 28px 28px 24px;
+}
+.form-title {
+  font-family: 'Instrument Serif', serif;
+  font-size: 22px;
+  color: var(--navy-dark);
+  text-align: center;
+  margin-bottom: 22px;
+  letter-spacing: -0.3px;
+}
+.form-field {
+  margin-bottom: 13px;
+}
+.form-field label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 5px;
+  letter-spacing: 0.1px;
+}
+.form-field input {
+  width: 100%;
+  padding: 10px 13px;
+  background: #F9FAFB;
+  border: 1.5px solid #E5E7EB;
+  border-radius: 8px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  color: var(--navy-dark);
+  outline: none;
+  transition: border-color 0.15s, background 0.15s;
+}
+.form-field input:focus {
+  border-color: #2563EB;
+  background: #fff;
+}
+.form-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.form-check-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  margin-bottom: 16px;
+  margin-top: 4px;
+}
+.form-check-row input { accent-color: var(--navy); margin-top: 3px; }
+.form-check-row label {
+  font-size: 12px;
+  color: #6B7280;
+  line-height: 1.55;
+}
+.form-btn {
+  width: 100%;
+  padding: 14px;
+  background: var(--navy);
+  color: var(--white);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  letter-spacing: 0.2px;
+  transition: background 0.2s, transform 0.1s;
+}
+.form-btn:hover { background: #1a2d52; transform: translateY(-1px); }
+.form-note {
+  text-align: center;
+  font-size: 11.5px;
+  color: #9CA3AF;
+  margin-top: 11px;
+}
+
+/* ─── SECTION BASE ─── */
+.section-wrap {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 56px;
+}
+.section-divider {
+  max-width: 1160px;
+  margin: 0 auto 0;
+  padding: 0 56px;
+}
+.section-divider-line {
+  height: 1px;
+  background: var(--border);
+}
+
+/* ─── WIIFY SECTION ─── */
+.wiify {
+  padding: 100px 0 80px;
+}
+.wiify-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
+  margin-top: 44px;
+}
+
+/* section heading */
+.section-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--accent);
+  margin-bottom: 14px;
+}
+.section-h2 {
+  font-family: 'Instrument Serif', serif;
+  font-size: clamp(30px, 3.2vw, 42px);
+  line-height: 1.1;
+  letter-spacing: -0.8px;
+  color: var(--white);
+}
+
+/* Left column — body copy */
+.wiify-body {
+  font-size: 15.5px;
+  line-height: 1.82;
+  color: var(--body-text);
+}
+.wiify-body p + p { margin-top: 18px; }
+.wiify-body strong { color: var(--white); font-weight: 600; }
+
+.wiify-bullets {
+  margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.wiify-bullet {
+  display: flex;
+  gap: 13px;
+  align-items: flex-start;
+}
+.bullet-arrow {
+  width: 20px; height: 20px;
+  background: rgba(245,200,66,0.12);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+.bullet-arrow svg { width: 9px; height: 9px; }
+.bullet-text {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--body-text);
+}
+.bullet-text strong { color: var(--white); font-weight: 600; }
+
+/* Right column — agenda card */
+.agenda-card {
+  background: #EFF4FF;
+  border-radius: 16px;
+  padding: 32px;
+}
+.agenda-card-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #6B7280;
+  margin-bottom: 20px;
+}
+.agenda-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+.agenda-item:last-child { border-bottom: none; }
+.agenda-dot {
+  width: 7px; height: 7px;
+  background: #6B85C4;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 8px;
+}
+.agenda-text {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #374151;
+}
+.agenda-text strong { color: #111827; }
+
+/* ─── WALK AWAY ─── */
+.walkaway {
+  padding: 0 0 100px;
+}
+.walkaway-inner {
+  background: rgba(245,200,66,0.05);
+  border: 1px solid rgba(245,200,66,0.18);
+  border-radius: 18px;
+  padding: 44px 48px;
+  margin-top: 0;
+}
+.walkaway-h3 {
+  font-family: 'Instrument Serif', serif;
+  font-size: 26px;
+  letter-spacing: -0.4px;
+  margin-bottom: 28px;
+  color: var(--white);
+}
+.walkaway-items {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+.walkaway-item {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+.wa-num {
+  font-family: 'Instrument Serif', serif;
+  font-size: 30px;
+  color: rgba(245,200,66,0.35);
+  line-height: 1;
+  flex-shrink: 0;
+  margin-top: -4px;
+}
+.wa-text {
+  font-size: 14.5px;
+  line-height: 1.68;
+  color: var(--body-text);
+}
+.wa-text strong { color: var(--white); }
+
+/* ─── IS THIS FOR YOU ─── */
+.isthis {
+  background: var(--navy-dark);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 100px 0;
+}
+.isthis-inner {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 56px;
+}
+.isthis-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 44px;
+}
+.isthis-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border-light);
+  border-radius: 14px;
+  padding: 28px 24px 32px;
+  transition: border-color 0.2s, background 0.2s;
+}
+.isthis-card:hover {
+  border-color: rgba(245,200,66,0.2);
+  background: rgba(255,255,255,0.045);
+}
+.isthis-icon {
+  width: 44px; height: 44px;
+  margin-bottom: 18px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.05);
+  display: grid;
+  place-items: center;
+}
+.isthis-icon svg { width: 22px; height: 22px; opacity: 0.7; }
+.isthis-text {
+  font-size: 15px;
+  line-height: 1.72;
+  color: var(--body-text);
+}
+.isthis-text strong { color: var(--white); font-weight: 600; }
+
+/* ─── LOGOS ─── */
+.logos-section {
+  padding: 80px 0 100px;
+}
+.logos-inner {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 56px;
+  text-align: center;
+}
+.logos-heading {
+  font-size: 15px;
+  color: var(--muted);
+  margin-bottom: 40px;
+}
+.logos-heading strong { color: var(--white); }
+.logos-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+}
+.logo-placeholder {
+  height: 40px;
+  padding: 0 24px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+  letter-spacing: 0.3px;
+  transition: color 0.18s, border-color 0.18s;
+}
+.logo-placeholder:hover { color: var(--white); border-color: rgba(255,255,255,0.2); }
+
+/* ─── BOTTOM CTA ─── */
+.bottom-cta {
+  background: linear-gradient(180deg, var(--navy-card) 0%, var(--navy-dark) 100%);
+  border-top: 1px solid var(--border);
+  padding: 90px 56px;
+  text-align: center;
+}
+.bottom-cta-h2 {
+  font-family: 'Instrument Serif', serif;
+  font-size: clamp(28px, 3vw, 40px);
+  letter-spacing: -0.6px;
+  margin-bottom: 14px;
+}
+.bottom-cta-p {
+  font-size: 15.5px;
+  color: var(--body-text);
+  margin-bottom: 34px;
+}
+.bottom-btn {
+  display: inline-block;
+  background: var(--accent);
+  color: var(--navy-dark);
+  font-size: 15px;
+  font-weight: 700;
+  padding: 16px 44px;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: opacity 0.18s, transform 0.1s;
+}
+.bottom-btn:hover { opacity: 0.85; transform: translateY(-2px); }
+
+/* ─── FOOTER ─── */
+footer {
+  background: var(--navy-dark);
+  border-top: 1px solid var(--border);
+  padding: 28px 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.footer-left {
+  font-family: 'Instrument Serif', serif;
+  font-size: 18px;
+  color: var(--white);
+}
+.footer-left span { color: var(--accent); }
+.footer-links { display: flex; gap: 28px; }
+.footer-links a {
+  font-size: 12.5px;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.footer-links a:hover { color: var(--white); }
+.footer-copy { font-size: 12px; color: #2C3E5A; }
+
+/* ─── SCROLL REVEAL ─── */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* stagger children */
+.stagger-parent .reveal:nth-child(1) { transition-delay: 0.05s; }
+.stagger-parent .reveal:nth-child(2) { transition-delay: 0.12s; }
+.stagger-parent .reveal:nth-child(3) { transition-delay: 0.19s; }
+.stagger-parent .reveal:nth-child(4) { transition-delay: 0.26s; }
+.stagger-parent .reveal:nth-child(5) { transition-delay: 0.33s; }
+.stagger-parent .reveal:nth-child(6) { transition-delay: 0.40s; }
+
+/* ─── HERO ENTRY ANIMATIONS ─── */
+.hero-anim {
+  animation: heroIn 0.7s ease both;
+}
+.hero-anim-1 { animation-delay: 0.05s; }
+.hero-anim-2 { animation-delay: 0.18s; }
+.hero-anim-3 { animation-delay: 0.3s; }
+.hero-anim-4 { animation-delay: 0.42s; }
+.hero-anim-5 { animation-delay: 0.54s; }
+.hero-anim-6 { animation-delay: 0.66s; }
+@keyframes heroIn {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.form-anim {
+  animation: formIn 0.8s 0.25s ease both;
+}
+@keyframes formIn {
+  from { opacity: 0; transform: translateX(20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@media (max-width: 960px) {
+  .hero { grid-template-columns: 1fr; padding: 100px 28px 60px; }
+  .hero-left { padding-right: 0; margin-bottom: 48px; }
+  .wiify-grid { grid-template-columns: 1fr; }
+  .walkaway-items { grid-template-columns: 1fr; gap: 20px; }
+  .isthis-cards { grid-template-columns: 1fr; }
+  .section-wrap, .isthis-inner, .logos-inner { padding: 0 28px; }
+  .bottom-cta { padding: 70px 28px; }
+  footer { flex-direction: column; gap: 18px; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="navbar-logo-text">ever<span style="color:var(--accent)">stage</span></div>
+  <a href="#register" class="navbar-cta">Join the Conversation</a>
+</nav>
+
+<!-- ════════════════════════════════════════
+     HERO
+════════════════════════════════════════ -->
+<section class="hero">
+
+  <!-- LEFT -->
+  <div class="hero-left">
+
+    <div class="live-badge hero-anim hero-anim-1">
+      <span class="live-dot"></span>
+      Live Webinar
+    </div>
+
+    <h1 class="hero-h1 hero-anim hero-anim-2">The #2 Cost Line <em>Nobody Optimizes</em></h1>
+    <p class="hero-h2 hero-anim hero-anim-3">Why SaaS Comp Playbooks from 2020 Are Breaking 2026 Margins</p>
+    <p class="hero-sub hero-anim hero-anim-3">A panel for SaaS CFOs, CROs, and VP RevOps leaders who need to explain comp's margin impact to a board — and know where to start fixing it.</p>
+
+    <div class="hero-desc hero-anim hero-anim-4">
+      <p>In the last 12 months, the CFO has moved from approving comp plans to questioning them. Efficient growth mandates, CAC payback scrutiny, and hiring freezes have put every dollar of sales compensation under board-level scrutiny it hasn't faced before.</p>
+      <p>The problem is that most plans were designed in 2020, when top-line ARR covered a lot of structural sloppiness. They weren't built to protect margin. They were built to accelerate revenue. Those are no longer the same instruction.</p>
+    </div>
+
+    <!-- Date / Time -->
+    <div class="meta-row hero-anim hero-anim-5">
+      <div class="meta-item">
+        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+        Wednesday, April 30
+      </div>
+      <div class="meta-sep"></div>
+      <div class="meta-item">
+        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        12 PM EST
+      </div>
+    </div>
+
+    <!-- Speakers -->
+    <div class="speakers-block hero-anim hero-anim-6">
+      <p class="speakers-label">Speakers</p>
+      <div class="speakers-list stagger-parent">
+        <div class="speaker-card reveal">
+          <div class="speaker-av">MF</div>
+          <div>
+            <div class="speaker-name">Matthew Flotard</div>
+            <div class="speaker-title">VP of Revenue Operations</div>
+            <span class="speaker-co">Gong</span>
+          </div>
+        </div>
+        <div class="speaker-card reveal">
+          <div class="speaker-av">NP</div>
+          <div>
+            <div class="speaker-name">Navin Persaud</div>
+            <div class="speaker-title">VP of Revenue Operations</div>
+            <span class="speaker-co">1Password</span>
+          </div>
+        </div>
+        <div class="speaker-card reveal">
+          <div class="speaker-av">JA</div>
+          <div>
+            <div class="speaker-name">Jose Aleman</div>
+            <div class="speaker-title">VP of GTM Excellence</div>
+            <span class="speaker-co">Everstage</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- RIGHT — FORM -->
+  <div class="hero-right form-anim" id="register">
+    <div class="form-wrap">
+      <div class="form-urgency">
+        <div class="form-urgency-text">Spots filling fast. Save yours now.</div>
+        <div class="form-countdown" id="countdown">Loading…</div>
+      </div>
+      <div class="form-body">
+        <h3 class="form-title">Reserve Your Spot</h3>
+        <div class="form-field">
+          <label>Email *</label>
+          <input type="email" placeholder="you@company.com">
+        </div>
+        <div class="form-2col">
+          <div class="form-field">
+            <label>First name *</label>
+            <input type="text" placeholder="First">
+          </div>
+          <div class="form-field">
+            <label>Last name *</label>
+            <input type="text" placeholder="Last">
+          </div>
+        </div>
+        <div class="form-field">
+          <label>Company *</label>
+          <input type="text" placeholder="Company name">
+        </div>
+        <div class="form-field">
+          <label>What's your biggest comp challenge right now? <span style="color:#9CA3AF;font-weight:400">(optional)</span></label>
+          <input type="text" placeholder="e.g. plan design, rep visibility, finance alignment">
+        </div>
+        <div class="form-check-row">
+          <input type="checkbox" id="updates">
+          <label for="updates">Stay updated with the latest RevOps and comp strategy insights</label>
+        </div>
+        <button class="form-btn">Join the Conversation</button>
+        <p class="form-note">Free to attend. One confirmation email. Nothing else.</p>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- DIVIDER -->
+<div class="section-divider"><div class="section-divider-line"></div></div>
+
+<!-- ════════════════════════════════════════
+     WHAT'S IN IT FOR YOU  +  AGENDA
+════════════════════════════════════════ -->
+<div class="section-wrap">
+  <div class="wiify">
+
+    <p class="section-eyebrow reveal">What's in it for you</p>
+    <h2 class="section-h2 reveal">Most comp plans aren't broken<br>in an obvious way.</h2>
+
+    <div class="wiify-grid">
+
+      <!-- LEFT: Body copy + bullets -->
+      <div>
+        <div class="wiify-body reveal">
+          <p>RevOps teams do essential work, but too much of it is operating around a plan that was never designed for where the business is now. You're running 2020 playbooks: flat % of ARR regardless of deal quality, unlimited accelerators with no shape modeling, territory overlays that double-pay for the same dollar of revenue.</p>
+          <p>Matthew, Navin, and Jose aren't here to give you another framework. They're here to be specific about where 2020-era comp logic breaks 2026 margin math, where the real gains are, and what teams that have actually fixed it did differently.</p>
+          <p>You'll see how to move from a plan built around top-line ARR to one explicitly wired to your efficient growth model: CAC payback, gross margin, retention, and expansion. Without blowing up trust on the sales floor.</p>
+        </div>
+
+        <div class="wiify-bullets stagger-parent" style="margin-top:28px;">
+          <div class="wiify-bullet reveal">
+            <div class="bullet-arrow">
+              <svg viewBox="0 0 10 10" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M2 5h6M5 2l3 3-3 3"/></svg>
+            </div>
+            <span class="bullet-text"><strong>The 2020 assumptions that no longer hold</strong>, translated into the exact cost each one carries on your 2026 P&L</span>
+          </div>
+          <div class="wiify-bullet reveal">
+            <div class="bullet-arrow">
+              <svg viewBox="0 0 10 10" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M2 5h6M5 2l3 3-3 3"/></svg>
+            </div>
+            <span class="bullet-text"><strong>The Comp Maturity Curve</strong>, a 4-stage framework to self-place your plan, with the typical CFO reaction and rep floor sentiment at each stage</span>
+          </div>
+          <div class="wiify-bullet reveal">
+            <div class="bullet-arrow">
+              <svg viewBox="0 0 10 10" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M2 5h6M5 2l3 3-3 3"/></svg>
+            </div>
+            <span class="bullet-text"><strong>The Comp Audit</strong>, a working diagnostic to pressure-test whether your plan is paying for the behaviors your business actually needs</span>
+          </div>
+          <div class="wiify-bullet reveal">
+            <div class="bullet-arrow">
+              <svg viewBox="0 0 10 10" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M2 5h6M5 2l3 3-3 3"/></svg>
+            </div>
+            <span class="bullet-text"><strong>What margin-safe comp looks like in 2026</strong>, with the characteristics of top-tier SaaS comp drawn from Gong and 1Password's operating experience</span>
+          </div>
+          <div class="wiify-bullet reveal">
+            <div class="bullet-arrow">
+              <svg viewBox="0 0 10 10" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M2 5h6M5 2l3 3-3 3"/></svg>
+            </div>
+            <span class="bullet-text"><strong>First moves that don't require a full redesign</strong>, including quality gates, accelerator re-shaping, and a realistic timeline to start</span>
+          </div>
+          <div class="wiify-bullet reveal">
+            <div class="bullet-arrow">
+              <svg viewBox="0 0 10 10" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M2 5h6M5 2l3 3-3 3"/></svg>
+            </div>
+            <span class="bullet-text"><strong>Live Q&A</strong>, with CFO and CRO questions prioritized</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: You'll walk away with -->
+      <div>
+        <div class="agenda-card reveal">
+          <p class="agenda-card-title">You'll walk away with</p>
+          <div class="agenda-item">
+            <div class="agenda-dot"></div>
+            <span class="agenda-text"><strong>Diagnose</strong> whether your current comp plan is paying for the behaviors that protect 2026 margins or the ones that erode them — using a 5-question audit you can run before the next board cycle</span>
+          </div>
+          <div class="agenda-item">
+            <div class="agenda-dot"></div>
+            <span class="agenda-text"><strong>Articulate</strong> the economic logic of your comp plan in two sentences to a CFO or board member, including where it's connected to CAC payback, gross margin, and deal quality — and where it isn't</span>
+          </div>
+          <div class="agenda-item">
+            <div class="agenda-dot"></div>
+            <span class="agenda-text"><strong>Identify</strong> the first design changes you can make before next year's plan is locked, without triggering a full redesign or losing rep trust mid-year</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- DIVIDER -->
+<div class="section-divider"><div class="section-divider-line"></div></div>
+
+<!-- ════════════════════════════════════════
+     IS THIS WEBINAR FOR YOU?
+════════════════════════════════════════ -->
+<div class="isthis">
+  <div class="isthis-inner">
+    <p class="section-eyebrow reveal">Is this webinar for you?</p>
+    <h2 class="section-h2 reveal">Three reasons to be in the room.</h2>
+
+    <div class="isthis-cards stagger-parent">
+
+      <div class="isthis-card reveal">
+        <div class="isthis-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M3 3v18h18"/><path d="M7 16l4-4 4 4 4-4"/></svg>
+        </div>
+        <p class="isthis-text">You're a <strong>SaaS CFO, CRO, VP RevOps, or Comp leader</strong> who has watched "we need more pipeline" become the default answer to every missed quarter, and you're starting to suspect the comp plan is part of the question nobody's asking.</p>
+      </div>
+
+      <div class="isthis-card reveal">
+        <div class="isthis-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 12h6M9 16h4"/></svg>
+        </div>
+        <p class="isthis-text">You're <strong>responsible for a comp plan you inherited, patched, or approved</strong>, and if someone asked you to articulate the economic logic of the plan in two sentences to a board member, you'd pause.</p>
+      </div>
+
+      <div class="isthis-card reveal">
+        <div class="isthis-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        </div>
+        <p class="isthis-text">You're <strong>tired of comp content that's vague, loud, and says nothing specific.</strong> This panel is built on operating experience from VP RevOps leaders at Gong and 1Password, companies that have actually rebuilt comp plans under board-level scrutiny, not theorized about it.</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════
+     LOGOS
+════════════════════════════════════════ -->
+<div class="logos-section">
+  <div class="logos-inner">
+    <p class="logos-heading reveal"><strong>Everstage is rated #1 sales commission software.</strong> Loved by customers worldwide.</p>
+    <div class="logos-grid stagger-parent">
+      <div class="logo-placeholder reveal">Notion</div>
+      <div class="logo-placeholder reveal">Trimble</div>
+      <div class="logo-placeholder reveal">Glean</div>
+      <div class="logo-placeholder reveal">Wiley</div>
+      <div class="logo-placeholder reveal">Diligent</div>
+      <div class="logo-placeholder reveal">LA Clippers</div>
+      <div class="logo-placeholder reveal">Olo</div>
+      <div class="logo-placeholder reveal">Thoughtworks</div>
+      <div class="logo-placeholder reveal">McMakler</div>
+      <div class="logo-placeholder reveal">Genius Sports</div>
+      <div class="logo-placeholder reveal">Bazaarvoice</div>
+      <div class="logo-placeholder reveal">Axogen</div>
+      <div class="logo-placeholder reveal">Rocket Lawyer</div>
+      <div class="logo-placeholder reveal">Gray</div>
+    </div>
+  </div>
+</div>
+
+<!-- BOTTOM CTA -->
+<div class="bottom-cta">
+  <h2 class="bottom-cta-h2 reveal">April 30. 12 PM EST. One hour.</h2>
+  <p class="bottom-cta-p reveal">Your comp plan is already paying people for something. The question is whether it's the behaviors your 2026 margins actually need.</p>
+  <a href="#register" class="bottom-btn reveal">Join the Conversation →</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-left">ever<span>stage</span></div>
+  <div class="footer-links">
+    <a href="#">Privacy Policy</a>
+    <a href="#">Terms of Service</a>
+    <a href="#">Webinars</a>
+    <a href="#">Contact</a>
+  </div>
+  <span class="footer-copy">© 2026 Everstage Inc.</span>
+</footer>
+
+<script>
+  // ── Countdown to April 30 12PM EST ──
+  function tick() {
+    const target = new Date('2026-04-30T12:00:00-05:00');
+    const diff = target - new Date();
+    if (diff <= 0) {
+      document.getElementById('countdown').textContent = 'Starting now';
+      return;
+    }
+    const d = Math.floor(diff / 86400000);
+    const h = Math.floor((diff % 86400000) / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const pad = n => String(n).padStart(2, '0');
+    document.getElementById('countdown').textContent =
+      `${d} Days : ${pad(h)} Hrs : ${pad(m)} Mins`;
+  }
+  tick();
+  setInterval(tick, 30000);
+
+  // ── Scroll reveal ──
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
